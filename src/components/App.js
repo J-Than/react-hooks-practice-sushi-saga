@@ -17,9 +17,13 @@ function App() {
     .then(data => setSushiList(data))
   }, [])
 
+  function handleMoreSushi() {
+    setSushiIndex(sushiIndex => sushiIndex = sushiIndex<96 ? sushiIndex + 4 : 0)
+  }
+
   return (
     <div className="app">
-      <SushiContainer sushiDisplay={sushiList.slice(sushiIndex, sushiIndex+4)} />
+      <SushiContainer sushiDisplay={sushiList.slice(sushiIndex, sushiIndex+4)} onMoreSushi={handleMoreSushi} />
       <Table />
     </div>
   );
