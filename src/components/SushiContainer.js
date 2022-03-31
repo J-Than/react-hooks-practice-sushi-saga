@@ -2,7 +2,7 @@ import React from "react";
 import Sushi from "./Sushi";
 import MoreButton from "./MoreButton";
 
-function SushiContainer({ sushiDisplay, onMoreSushi, onEatSushi, sushiEaten, onPayment }) {
+function SushiContainer({ sushiDisplay, onMoreSushi, onEatSushi, sushiEaten, onPayment, money }) {
 
   return (
     <div className="belt">
@@ -11,7 +11,8 @@ function SushiContainer({ sushiDisplay, onMoreSushi, onEatSushi, sushiEaten, onP
         key={s.id}
         onEatSushi={onEatSushi}
         sushiEaten={sushiEaten}
-        onPayment={onPayment}  
+        onPayment={onPayment}
+        money={money}
       />)}
       <MoreButton onMoreSushi={onMoreSushi} />
     </div>

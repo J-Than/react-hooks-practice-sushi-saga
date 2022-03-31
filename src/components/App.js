@@ -37,6 +37,7 @@ function App() {
         onEatSushi={handleEatSushi}
         sushiEaten={sushiEaten}
         onPayment={handlePayment}
+        money={money}
         />
       <Table plates={sushiEaten} money={money} />
     </div>

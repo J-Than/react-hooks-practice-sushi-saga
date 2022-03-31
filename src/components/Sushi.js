@@ -1,12 +1,14 @@
 import React from "react";
 
-function Sushi({ sushi, onEatSushi, sushiEaten, onPayment }) {
+function Sushi({ sushi, onEatSushi, sushiEaten, onPayment, money }) {
 
   const doneBeenEt = sushiEaten.includes(sushi.id)
 
   function handleEatClick() {
-    onEatSushi(sushi.id);
-    onPayment(sushi.price);
+    if (money >= sushi.price) {
+      onEatSushi(sushi.id);
+      onPayment(sushi.price);
+    } else { return null }
   }
 
   return (
