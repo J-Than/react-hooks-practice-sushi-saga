@@ -21,10 +21,19 @@ function App() {
     setSushiIndex(sushiIndex => sushiIndex = sushiIndex<96 ? sushiIndex + 4 : 0)
   }
 
+  function handleEatSushi(sushiID) {
+    setSushiEaten([...sushiEaten, sushiID])
+  }
+
   return (
     <div className="app">
-      <SushiContainer sushiDisplay={sushiList.slice(sushiIndex, sushiIndex+4)} onMoreSushi={handleMoreSushi} />
-      <Table />
+      <SushiContainer
+        sushiDisplay={sushiList.slice(sushiIndex, sushiIndex+4)}
+        onMoreSushi={handleMoreSushi}
+        onEatSushi={handleEatSushi}
+        sushiEaten={sushiEaten}
+        />
+      <Table plates={sushiEaten} />
     </div>
   );
 }
