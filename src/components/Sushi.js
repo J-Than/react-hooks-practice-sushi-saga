@@ -1,11 +1,12 @@
 import React from "react";
 
-function Sushi({ sushi, onEatSushi, sushiEaten }) {
+function Sushi({ sushi, onEatSushi, sushiEaten, onPayment }) {
 
   const doneBeenEt = sushiEaten.includes(sushi.id)
 
   function handleEatClick() {
-    onEatSushi(sushi.id)
+    onEatSushi(sushi.id);
+    onPayment(sushi.price);
   }
 
   return (

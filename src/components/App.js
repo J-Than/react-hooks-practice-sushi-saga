@@ -25,6 +25,10 @@ function App() {
     setSushiEaten([...sushiEaten, sushiID])
   }
 
+  function handlePayment(price) {
+    setMoney(money => money = money - price)
+  }
+
   return (
     <div className="app">
       <SushiContainer
@@ -32,8 +36,9 @@ function App() {
         onMoreSushi={handleMoreSushi}
         onEatSushi={handleEatSushi}
         sushiEaten={sushiEaten}
+        onPayment={handlePayment}
         />
-      <Table plates={sushiEaten} />
+      <Table plates={sushiEaten} money={money} />
     </div>
   );
 }
